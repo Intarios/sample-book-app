@@ -2,41 +2,42 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                echo "Build sample-book-app.. "
+                echo "Building of node application is starting .."
             }
         }
-        stage('deploy-dev') {
+        stage('Deploy to DEV') {
             steps {
-                echo "Deployment triggered to DEV environemnt.. "
+                echo "Deployment to DEV has started .."
             }
         }
-        stage('api-test-dev') {
+        stage('Tests on DEV') {
             steps {
-                echo "API Tests triggered against DEV environemnt.. "
+                echo "Testing on DEV has started .."
             }
         }
-        stage('deploy-stg') {
+        stage('Deploy to STG') {
             steps {
-                echo "Deployment triggered to STG environemnt.. "
+                echo "Deployment to STG has started .."
             }
         }
-        stage('api-test-stg') {
+        stage('Tests on STG') {
             steps {
-                echo "API Tests triggered against STG environemnt.. "
+                echo "Testing on STG has started .."
             }
         }
-        stage('deploy-prd') {
+        stage('Deploy to PROD') {
             steps {
-                echo "Deployment triggered to PRD environemnt.. "
+                echo "Deployment to PROD has started .."
             }
         }
-        stage('api-test-prd') {
+        stage('Tests on PROD') {
             steps {
-                echo "API Tests triggered against PRD environemnt.. "
+                echo "Testing on PROD has started .."
             }
         }
+
     }
 }
 
