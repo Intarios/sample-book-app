@@ -68,19 +68,30 @@ def build()
 {
     echo "Building of node application is starting .."
     bat "dir /b /a-d"
-    bat "npm install"
+    script {
+        pm2("install")
+    }
 }
 
 def deploy(String environment, int port)
 {
     echo "Deployment to ${environment} has started .."
-    bat "pm2 delete ${environment}"
-    bat "pm2 start -n \"${environment}\" index.js -- ${port}"
+
+    script {
+        pm2("delete ${environment}")
+        pm2("start -n \"${environment}\" index.js -- ${port}")
+    }
 }
 
 def test(String environment)
 {
     echo "Testing on ${environment} has started .."
-    bat "npm test"
+    script {
+        pm2("test")
+    }
 }
 
+def pm2(String command)
+{
+    bat "\\node_modules\\.bin\\pm2 ${command}"
+}
