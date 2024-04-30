@@ -68,9 +68,7 @@ def build()
 {
     echo "Building of node application is starting .."
     bat "dir /b /a-d"
-    script {
-        pm2("install")
-    }
+    bat "npm install"
 }
 
 def deploy(String environment, int port)
